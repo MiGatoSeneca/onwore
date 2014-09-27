@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+
+      <script type="text/javascript" src="assets/plugins/jquery-1.8.3.min.js"></script>
+  </head>
+  <body>
+    <style>
+      body{
+        background-color:#f4f4f4;
+        overflow:hidden;
+font-family: 'Arvo', serif;
+      }
+      h1{
+        position:absolute;
+        top:250px;
+        text-align:center;
+        width:100%;
+        font-size:800%;
+        color:#333;
+      }
+      #prev{
+        position:absolute;
+        top:50px;
+        font-size:800%;
+width:100%;
+        text-align:center;
+        color:#bbb;
+      }
+      #next{
+        position:absolute;
+        top:550px;
+        font-size:800%;
+width:100%;
+        text-align:center;
+        color:#bbb;
+      }
+    </style>
+    <h1 id='prev'></h1>
+    <h1> <span id='word'>START</span></h1>
+    <span id='next'></span>
+    <script>
+      $(document).ready(function(){
+        $(document).keypress(function(key){
+          if(key.which==100){
+            $_count++;
+          }else if(key.which==97){
+            $_count--;
+          }
+          $("#prev").html(split[$_count-1]);
+          $("#word").html(split[$_count]);
+          $("#next").html(split[$_count+1]);
+        });
+      });
+      $.ajax({
+          async: false,
+          type: "POST",
+          url: "text.txt",
+          data: {
+          },
+          error: function(data, textStatus, jqXHR) {
+          },
+          success: function(response) {
+            split = response.split(" ");
+            $_count=0;
+          }
+        });
+    </script>
+  </body>
+</html>
