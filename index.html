@@ -64,7 +64,14 @@ width:100%;
             alert(data+" "+textStatus+" "+jqXHR);
           },
           success: function(response) {
-            alert(response.result);
+            if(response.result){
+              jQuery.each(response.data.paragraph,function(key,value){
+                split = value.content.split(" ");
+                $("#word").css("color",value.color);
+              });
+
+            }
+            $_count=0;
           }
         });
     </script>

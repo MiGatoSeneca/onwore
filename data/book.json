@@ -1,1 +1,17 @@
-{"result" : true,"data" :{"id_brand" : 3}}
+{
+  "result" : true ,
+  "data" :{
+    "chapter" : 1 ,
+    "paragraph":{
+      "1":{
+        "color": "#333" ,
+        "content": "Empezó su nueva vida de pie , rodeado de fría oscuridad y aire viciado y polvoriento ."
+      },
+      "2":{
+        "color": "#333" ,
+        "content": "Todo era de metal . Una agitada sacudida movió el suelo bajo sus pies . Se cayó ante aquel movimiento repentino y retrocedió a cuatro patas , con unas gotas de sudor cubriéndole la frente a pesar del aire frío . Su espalda chocó contra una dura pared de metal y se deslizó por ella hasta que dio con la esquina de la habitación . Se arrellanó en el suelo , con las piernas bien pegadas al cuerpo y la esperanza de que pronto se le adaptaran los ojos a la oscuridad ."
+      }
+
+    }
+  }
+}
