@@ -1,7 +1,7 @@
 Onwore
 --------------
 
-Version 0.10
+Version 0.11
 
 Software to read books in your browser word by word.
 
