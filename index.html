@@ -42,6 +42,7 @@ width:100%;
     <script>
       $(document).ready(function(){
         $(document).keypress(function(key){
+          //alert(key.which);
           if(key.which==100){
             $_count++;
           }else if(key.which==97){
@@ -55,14 +56,15 @@ width:100%;
       $.ajax({
           async: false,
           type: "POST",
-          url: "text.txt",
+          dataType:"json",
+          url: "data/book.json",
           data: {
           },
           error: function(data, textStatus, jqXHR) {
+            alert(data+" "+textStatus+" "+jqXHR);
           },
           success: function(response) {
-            split = response.split(" ");
-            $_count=0;
+            alert(response.result);
           }
         });
     </script>
