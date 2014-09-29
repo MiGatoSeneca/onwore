@@ -5,13 +5,24 @@
     "paragraph":{
       "1":{
         "color": "#333" ,
-        "content": "Empezó su nueva vida de pie , rodeado de fría oscuridad y aire viciado y polvoriento ."
+        "content": "Empezó su nueva vida de pie, rodeado de fría oscuridad y aire viciado y polvoriento."
       },
       "2":{
         "color": "#333" ,
-        "content": "Todo era de metal . Una agitada sacudida movió el suelo bajo sus pies . Se cayó ante aquel movimiento repentino y retrocedió a cuatro patas , con unas gotas de sudor cubriéndole la frente a pesar del aire frío . Su espalda chocó contra una dura pared de metal y se deslizó por ella hasta que dio con la esquina de la habitación . Se arrellanó en el suelo , con las piernas bien pegadas al cuerpo y la esperanza de que pronto se le adaptaran los ojos a la oscuridad ."
+        "content": "Todo era de metal. Una agitada sacudida movió el suelo bajo sus pies. Se cayó ante aquel movimiento repentino y retrocedió a cuatro patas, con unas gotas de sudor cubriéndole la frente a pesar del aire frío. Su espalda chocó contra una dura pared de metal y se deslizó por ella hasta que dio con la esquina de la habitación. Se arrellanó en el suelo, con las piernas bien pegadas al cuerpo y la esperanza de que pronto se le adaptaran los ojos a la oscuridad."
+      },
+      "3":{
+        "color": "#333" ,
+        "content": "Con otro zarandeo, la habitación dio un tirón hacia arriba, como si se tratara de un viejo ascensor en el hueco de una mina."
+      },
+      "4":{
+        "color": "#333" ,
+        "content": "Unos discordantes sonidos de cadenas y poleas, como el mecanismo de una antigua fábrica de acero, retumbaron en la habitación y agitaron las paredes con un diminuto chirrido ahogado. El ascensor sin luz se balanceó hacia delante y hacia atrás mientras ascendía, y al chico le entraron náuseas. Un olor a aceite quemado le invadió los sentidos y le hizo sentirse peor. Quería llorar, pero no le salían las lágrimas; lo único que podía hacer era quedarse allí solo, sentado y a la espera."
+      },
+      "5":{
+        "color": "#333" ,
+        "content": "«Me llamo Thomas», pensó."
       }
-
     }
   }
 }

@@ -8,51 +8,30 @@
     <style>
       body{
         background-color:#f4f4f4;
+        font-family: 'Arvo', serif;
+        font-size:80pt;
+        color:#bbb;
         overflow:hidden;
-font-family: 'Arvo', serif;
       }
-      h1{
-        position:absolute;
-        top:250px;
-        text-align:center;
-        width:100%;
-        font-size:800%;
-        color:#333;
+      p{
+          text-align:center;
       }
-      #prev{
-        position:absolute;
-        top:50px;
-        font-size:800%;
-width:100%;
-        text-align:center;
-        color:#bbb;
+      #content{
+        width:auto;
       }
-      #next{
-        position:absolute;
-        top:550px;
-        font-size:800%;
-width:100%;
-        text-align:center;
-        color:#bbb;
+      #focus{
+        color:#333 !important;
       }
     </style>
-    <h1 id='prev'></h1>
-    <h1> <span id='word'>START</span></h1>
-    <span id='next'></span>
+    <div id='content'>
+      <p><span id='previous' style='text-align:left'>A</span> <span id='focus'>Start</span> <span id='next'>D</span></p>
+    </div>
+
     <script>
-      $(document).ready(function(){
-        $(document).keypress(function(key){
-          //alert(key.which);
-          if(key.which==100){
-            $_count++;
-          }else if(key.which==97){
-            $_count--;
-          }
-          $("#prev").html(split[$_count-1]);
-          $("#word").html(split[$_count]);
-          $("#next").html(split[$_count+1]);
-        });
-      });
+
+      $_count_word=-1;
+      $_count_paragraph=0;
+      $_paragraph = new Array();
       $.ajax({
           async: false,
           type: "POST",
@@ -65,14 +44,57 @@ width:100%;
           },
           success: function(response) {
             if(response.result){
+              $_count=0;
+              $_focus="focus";
+              $_i=0;
+              $_word_total=0;
               jQuery.each(response.data.paragraph,function(key,value){
+                $_paragraph[$_i]=new Array();
                 split = value.content.split(" ");
-                $("#word").css("color",value.color);
+                $_j=0;
+                jQuery.each(split,function(key,value){
+                  $_paragraph[$_i][$_j]=value;
+                  $_j++;
+                  $_word_total++;
+                });
+                $_i++;
+
               });
+              alert($_word_total);
 
             }
-            $_count=0;
           }
+        });
+        $_letter_spaces=20;
+        $(document).ready(function(){
+          $(document).keypress(function(key){
+            //alert(key.which);
+            if(key.which==100){
+              $_count_word++;
+            }else if((key.which==97)&&($_count_word>0)){
+              $_count_word--;
+            }
+            if($_count_word==$_paragraph[$_count_paragraph].length){
+              $_count_paragraph++;
+              $_count_word=0;
+            }
+            $("#focus").html($_paragraph[$_count_paragraph][$_count_word]);
+            if($_count_word+1>=$_paragraph[$_count_paragraph].length){
+              $_next="            ";
+            }else{
+              $_next=$_paragraph[$_count_paragraph][$_count_word+1]+" "+$_paragraph[$_count_paragraph][$_count_word+2]+" "+$_paragraph[$_count_paragraph][$_count_word+3];
+            }
+            if($_count_word==0){
+              $_previous="               ";
+            }else{
+                $_previous=$_paragraph[$_count_paragraph][$_count_word-3]+" "+$_paragraph[$_count_paragraph][$_count_word-2]+" "+$_paragraph[$_count_paragraph][$_count_word-1];
+
+            }
+            $_spaces_left=$_letter_spaces-$_paragraph[$_count_paragraph][$_count_word].length;
+            $_spaces_left=$_spaces_left/2;
+            $("#next").html($_next.substring(0,$_spaces_left));
+            $("#previous").html($_previous.substring($_previous.length-$_spaces_left,$_previous.length));
+          });
         });
     </script>
   </body>
